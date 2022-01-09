@@ -46,7 +46,38 @@ export default function MobileDrawer() {
         setIsDrawerOpen((prevState) => !prevState);
       }}
       closeButton={<IoMdClose size="24px" color="#000000 " />}
-    ></Drawer>
+      drawerStyle={styles.drawer}
+      closeBtnStyle={styles.close}
+    >
+      <Scrollbars autoHeight>
+        <Box sx={styles.content}>
+          <Box sx={styles.menu}>
+            {menuItems.map((menuItem, i) => (
+              <Link
+                activeClass="active"
+                to={menuItem.path}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                key={i}
+              >
+                {menuItem.label}
+              </Link>
+            ))}
+          </Box>
+          <Box sx={styles.menuFooter}>
+              <Box sx={styles.social}>
+              {social.map((socilaItem, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link to={socilaItem.path}>{socilaItem.icon}</Link>
+                </Box>
+              ))}
+              </Box>
+          </Box>
+        </Box>
+      </Scrollbars>
+    </Drawer>
   );
 }
 
