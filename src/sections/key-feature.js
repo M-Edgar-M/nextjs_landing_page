@@ -49,7 +49,7 @@ export default function KeyFeature() {
      <Container>
        <SectionHeader 
         slogan="Whats the function"
-        title="Meet the feature"
+        title="Meet the feature  of our product"
        />
        <Grid sx={styles.grid}>
          {data.map(({id, imgSrc, altText,title,text}) => (
